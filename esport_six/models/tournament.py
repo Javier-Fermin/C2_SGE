@@ -8,7 +8,6 @@ class Tournament(models.Model):
     description = fields.Text(string='Description')
     best_of = fields.Integer(string='Best Of')
     date = fields.Date(string='Date')
-    sponsors = fields.Many2many('esport_six.sponsor', string='Sponsors')
     matches = fields.One2many('esport_six.match', 'tournament_id', string='Matches')
 
     @api.model
@@ -30,13 +29,6 @@ class Tournament(models.Model):
     @api.model
     def find_all_tournaments(self):
         return self.search([])
-
-    class Sponsor(models.Model):
-        _name = 'esport_six.sponsor'
-        _description = 'Sponsor entity'
-
-        name = fields.Char(string='Name', required=True)
-        # Add other sponsor fields as needed
 
     class Match(models.Model):
         _name = 'esport_six.match'
