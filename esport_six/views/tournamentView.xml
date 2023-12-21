@@ -5,7 +5,7 @@
             <field name="name">esport_six.tournament.form</field>
             <field name="model">esport_six.tournament</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Tournament Form">
                     <sheet>
                         <group>
                             <field name="name"/>
@@ -22,7 +22,7 @@
             <field name="name">esport_six.tournament.tree</field>
             <field name="model">esport_six.tournament</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree string="Tournament List">
                     <field name="name"/>
                     <field name="description"/>
                     <field name="best_of"/>
