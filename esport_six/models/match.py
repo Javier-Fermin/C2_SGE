@@ -1,7 +1,7 @@
 from odoo import api,models,fields
 
 class Match(models.Model):
-    _name = "esports_match"
+    _name = "esports.match"
     _description = "Rcorded data of the match"
 
     id = fields.Integer(string='ID', required=True)

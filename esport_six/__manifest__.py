@@ -13,7 +13,11 @@
     "depends": ['base'],
     "data": [
         'security/security.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'Views/esporst.xml',
+        'Views/MatchView.xml',
+        'Views/stas_form',
+        'Views/stats_tree'
     ],
     "application": True,
     "installable": True,

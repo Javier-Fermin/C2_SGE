@@ -1,7 +1,7 @@
 from odoo import api,models,fields
 
 class Tournament(models.Model):
-    _name = 'esport_six.tournament'
+    _name = 'esports.tournament'
     _description = 'Tournament entity'
 
     name = fields.Char(string='Name', required=True)
