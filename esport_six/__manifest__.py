@@ -14,10 +14,10 @@
     "data": [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'Views/esporst.xml',
-        'Views/MatchView.xml',
-        'Views/stas_form',
-        'Views/stats_tree'
+        'views/MatchView.xml',
+        'views/stas_form.xml',
+        'views/stats_tree.xml',
+        'views/esporst.xml'
     ],
     "application": True,
     "installable": True,

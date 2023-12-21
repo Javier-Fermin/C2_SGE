@@ -4,7 +4,7 @@
         <field name="name">Esports</field>
         <field name="description">Category for esports</field>
     </record>
-    <record id="user_esports" model="res.groups">
+    <record id="player_esports" model="res.groups">
         <field name="name">Player eports</field>
         <field name="category_id" ref="module_category_esports"/>
     </record>

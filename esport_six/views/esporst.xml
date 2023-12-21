@@ -12,8 +12,8 @@
         <field name="view_id" ref="view_esports_stats_tree"/>
     </record>
 
-    <menuitem id="menu_aforos"
-              name="Aforos"
+    <menuitem id="menu_stats"
+              name="Stats"
               parent="esports_menu_root"
               action="esports_stats"
               sequence="3"/>
