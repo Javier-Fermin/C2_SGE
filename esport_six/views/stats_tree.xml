@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_esports_stats_tree" model="ir.ui.view">
+        <field name="name">view.esports.stats.tree</field>
+        <field name="model">esports.stats</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="match"/>
+                <field name="team"/>
+                <field name="kills"/>
+                <field name="deaths"/>
+                <field name="assists"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

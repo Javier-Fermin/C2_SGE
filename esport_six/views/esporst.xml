@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="esports_menu_root"
+        name="Esports"
+        sequence="10"/>
+
+    <record id="esports_stats" model="ir.actions.act_window">
+        <field name="name">Stats</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esports.stats</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_esports_stats_tree"/>
+    </record>
+
+    <menuitem id="menu_aforos"
+              name="Aforos"
+              parent="esports_menu_root"
+              action="esports_stats"
+              sequence="3"/>
+</odoo>
