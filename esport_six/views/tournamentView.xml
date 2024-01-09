@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_tournament_form" model="ir.ui.view">
+            <field name="name">esport_six.tournament.form</field>
+            <field name="model">esport_six.tournament</field>
+            <field name="arch" type="xml">
+                <form string="Tournament Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="best_of"/>
+                            <field name="date"/>
+                            <field name="matches" widget="many2many_tags" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_tournament_tree" model="ir.ui.view">
+            <field name="name">esport_six.tournament.tree</field>
+            <field name="model">esport_six.tournament</field>
+            <field name="arch" type="xml">
+                <tree string="Tournament List">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="best_of"/>
+                    <field name="date"/>
+                    <field name="matches" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>
