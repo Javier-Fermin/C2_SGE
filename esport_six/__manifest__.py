@@ -21,4 +21,5 @@
     ],
     "application": True,
     "installable": True,
+    #"icon":/repo/C2_SGE/esport_six/static/description/icon.png,
 }
