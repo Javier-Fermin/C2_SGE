@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_esports,access.esports,model_esports_tournament,player_esports,1,0,0,0
-access_esports,access.esports,model_esports_tournament,admin_esports,1,1,1,1
-access_esports,access.esports,model_esports_match,player_esports,1,0,0,0
-access_esports,access.esports,model_esports_match,admin_esports,1,1,1,1
-access_esports,access.esports,model_esports_stats,player_esports,1,0,0,0
-access_esports,access.esports,model_esports_stats,admin_esports,1,1,1,1
+access_esports_tp,access.esports,model_esports_tournament,player_esports,1,0,0,0
+access_esports_ta,access.esports,model_esports_tournament,admin_esports,1,1,1,1
+access_esports_mp,access.esports,model_esports_match,player_esports,1,0,0,0
+access_esports_ma,access.esports,model_esports_match,admin_esports,1,1,1,1
+access_esports_sp,access.esports,model_esports_stats,player_esports,1,0,0,0
+access_esports_sa,access.esports,model_esports_stats,admin_esports,1,1,1,1

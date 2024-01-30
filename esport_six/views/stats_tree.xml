@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="match"/>
+                <field name="player"/>
                 <field name="team"/>
                 <field name="kills"/>
                 <field name="deaths"/>

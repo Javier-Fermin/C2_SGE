@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_stats_template">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Player Statistics Report</h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Player</th>
+                                    <th>Team</th>
+                                    <th>Kills</th>
+                                    <th>Deaths</th>
+                                    <th>Assists</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="docs" t-as="o">
+                                    <td><t t-esc="o.player.name"/></td>
+                                    <td><t t-esc="o.team"/></td>
+                                    <td><t t-esc="o.kills"/></td>
+                                    <td><t t-esc="o.deaths"/></td>
+                                    <td><t t-esc="o.assists"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_stats" model="ir.actions.report">
+            <field name="name">Player Statistics Report</field>
+            <field name="model">esports.stats</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">esport_six.report_stats_template</field>
+            <field name="report_file">esport_six.report_stats_template</field>
+            <field name="binding_model_id" ref="model_esports_stats"/>
+        </record>
+    </data>
+</odoo>

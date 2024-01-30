@@ -1,8 +1,8 @@
 from odoo import api,models,fields
 
-class Player(models.Model):
+class Users(models.Model):
     _inherit = "res.users"
-    #_name = "esports.player"
 
+    is_player = fields.Boolean(string="Is player")
     nickname = fields.Char(string="Nickname")
     
