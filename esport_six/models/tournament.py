@@ -1,4 +1,7 @@
-from odoo import api,models,fields
+import datetime
+
+from odoo import api,models,fields,exceptions
+from datetime import date
 
 class Tournament(models.Model):
     _name = 'esports.tournament'
@@ -10,30 +13,25 @@ class Tournament(models.Model):
     date = fields.Date(string='Date')
     matches = fields.One2many('esport_six.match', 'tournament_id', string='Matches')
 
+    @api.onchange('best_of')
+    def _check_numeric_values(self):
+        for record in self:
+            if record.best_of < 1:
+                raise exceptions.ValidationError("The tournament best of value must be more than or equal to 1.")
+
+    #constraint de date format
+    @api.constrains
+    def _onchange_date(self):
+        if self.date.null():
+            raise exceptions.ValidationError("The date field must be informed, the selected date is null.")
+
+    #api.model create & write
     @api.model
-    def find_tournaments_by_name(self, name):
-        return self.search([('name', 'ilike', name)])
+    def create(self, vals):
+        if 'date' not in vals:
+            vals['date'] = date.today()
+        return super(Tournament, self).create(vals)
 
     @api.model
-    def find_tournaments_by_date(self, date):
-        return self.search([('date', '=', date)])
-
-    @api.model
-    def find_tournaments_by_format(self, best_of):
-        return self.search([('best_of', '=', best_of)])
-
-    @api.model
-    def find_match_tournament(self, match_id):
-        return self.search([('matches.id', '=', match_id)])
-
-    @api.model
-    def find_all_tournaments(self):
-        return self.search([])
-
-    class Match(models.Model):
-        _name = 'esport_six.match'
-        _description = 'Match entity'
-
-        # Define match fields
-        tournament_id = fields.Many2one('esport_six.tournament', string='Tournament')
-        # Add other match fields as needed
+    def write(self, vals):
+        return super(Tournament, self).write(vals)
