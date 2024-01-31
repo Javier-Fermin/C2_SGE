@@ -23,11 +23,16 @@ class Stats(models.Model):
 
     @api.model
     def create(self, vals):
-        if 'player' not in vals:
-            if self.env.uid.is_player:
+        if 'player' not in vals or not vals['player']:
+            if self.env['res.users'].sudo().search([('id', '=', self.env.uid)]).is_player:
                 vals['player'] = self.env.uid
         return super(Stats, self).create(vals)
 
     @api.model
     def write(self, vals):
+        for record in self:
+            if record.kills < 0 or record.deaths < 0 or record.assists < 0:
+                raise exceptions.ValidationError("Kills, Deaths, and Assists must be greater than or equal to 0.")
+            if not record.player.is_player:
+                raise exceptions.ValidationError("You must select a player, the selected user is not a player.")
         return super(Stats, self).writeF(vals)
