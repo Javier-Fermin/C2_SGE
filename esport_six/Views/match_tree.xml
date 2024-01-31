@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_esports_match_tree" model="ir.ui.view">
+        <field name="name">view.esports.match.tree</field>
+        <field name="model">esports.match</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ID"/>
+                <field name="Description"/>
+                <field name="Played date"/>
+                <field name="Winner"/>
+                <field name="Tournament"/>
+            </tree>
+        </field>
+    </record>
+</odoo>
