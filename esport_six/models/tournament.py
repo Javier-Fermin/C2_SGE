@@ -9,9 +9,15 @@ class Tournament(models.Model):
 
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
-    best_of = fields.Integer(string='Best Of')
+    best_of = fields.Integer(string='Best Of', default=1)
     date = fields.Date(string='Date')
-    matches = fields.One2many('esport_six.match', 'tournament_id', string='Matches')
+    matches = fields.One2many(comodel_name='esports.match', inverse_name="tournament", string='Matches')
+
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id, '%s' % (rec.name)))
+        return result
 
     @api.onchange('best_of')
     def _check_numeric_values(self):
@@ -20,18 +26,16 @@ class Tournament(models.Model):
                 raise exceptions.ValidationError("The tournament best of value must be more than or equal to 1.")
 
     #constraint de date format
-    @api.constrains
-    def _onchange_date(self):
-        if self.date.null():
+    @api.constrains('date')
+    def _constrains_date(self):
+        if not self.date:
             raise exceptions.ValidationError("The date field must be informed, the selected date is null.")
 
-    #api.model create & write
     @api.model
     def create(self, vals):
         if 'date' not in vals:
             vals['date'] = date.today()
         return super(Tournament, self).create(vals)
 
-    @api.model
     def write(self, vals):
         return super(Tournament, self).write(vals)

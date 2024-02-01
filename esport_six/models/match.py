@@ -8,15 +8,16 @@ class EsportsMatch(models.Model):
     _description = 'Recorded data of the match'
 
     played_date = fields.Date(string='Played Date')
-    winner = fields.Selection([('team1', 'Team 1'), ('team2', 'Team 2')], string='Winner')
-    tournament = fields.Many2one('esports.tournament', string='Tournament')
-    plays = fields.One2many('esports.stats', 'match', string='Plays')
+    winner = fields.Selection([("BLUE_TEAM","Blue Team"),("ORANGE_TEAM","Orange Team")], string='Winner')
+    tournament = fields.Many2one(comodel_name='esports.tournament', inverse_name="plays", string='Tournament')
+    plays = fields.One2many(comodel_name='esports.stats', inverse_name="match", string='Plays')
     description = fields.Char(string='Description')
 
-    @api.onchange('played_date')
-    def _onchange_played_date(self):
-        # Puedes realizar validaciones u acciones aquí
-        pass
+    def name_get(self):
+        result = []
+        for rec in self:
+            result.append((rec.id, '%s' % (rec.description)))
+        return result
 
     @api.constrains('played_date')
     def _check_played_date(self):
@@ -37,7 +38,7 @@ class EsportsMatch(models.Model):
             raise ValidationError("La fecha de juego no puede ser en el futuro.")
         return record
 
-    @api.constrains('description')
+    @api.onchange('description')
     def _check_description(self):
         for record in self:
             if record.description:

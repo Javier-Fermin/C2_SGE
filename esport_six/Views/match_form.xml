@@ -8,10 +8,10 @@
                 <sheet>
                     <group>
                         <field name="id"/>
-                        <field name="Description"/>
-                        <field name="Played date"/>
-                        <field name="Winner"/>
-                        <field name="Tournament"/>
+                        <field name="description"/>
+                        <field name="played_date"/>
+                        <field name="winner"/>
+                        <field name="tournament"/>
                     </group>
                 </sheet>
             </form>

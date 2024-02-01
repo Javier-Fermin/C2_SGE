@@ -5,11 +5,10 @@
         <field name="model">esports.match</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="ID"/>
-                <field name="Description"/>
-                <field name="Played date"/>
-                <field name="Winner"/>
-                <field name="Tournament"/>
+                <field name="description"/>
+                <field name="played_date"/>
+                <field name="winner"/>
+                <field name="tournament"/>
             </tree>
         </field>
     </record>

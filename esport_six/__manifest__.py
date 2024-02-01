@@ -14,16 +14,18 @@
     "data": [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/MatchView.xml',
         'views/stats_form.xml',
         'views/stats_kanban.xml',
         'views/stats_tree.xml',
+        'views/match_form.xml',
+        'views/match_kanban.xml',
+        'views/match_tree.xml',
+        'views/tournamentView.xml',
         'views/esporst.xml',
         'views/res_users_form_ext.xml',
         'views/res_users_tree_ext.xml',
         'report/report_stats.xml'
     ],
     "application": True,
-    "installable": True,
-    #"icon":/repo/C2_SGE/esport_six/static/description/icon.png,
+    "installable": True
 }
