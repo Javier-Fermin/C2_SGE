@@ -12,6 +12,7 @@ class EsportsMatch(models.Model):
     tournament = fields.Many2one(comodel_name='esports.tournament', inverse_name="plays", string='Tournament')
     plays = fields.One2many(comodel_name='esports.stats', inverse_name="match", string='Plays')
     description = fields.Char(string='Description')
+    image = fields.Binary(string="Image", attachment=True)
 
     def name_get(self):
         result = []

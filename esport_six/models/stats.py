@@ -8,7 +8,7 @@ class Stats(models.Model):
     assists = fields.Integer(string="Assists")
     team = fields.Selection([("BLUE_TEAM","Blue Team"),("ORANGE_TEAM","Orange Team")],string="Team")
     player = fields.Many2one(comodel_name="res.users", string="Player")
-    match = fields.Many2one(comodel_name="esports.match", string="Match")
+    match = fields.Many2one(comodel_name="esports.match",inverse_name="plays", string="Match")
     image = fields.Binary(string="Image",attachment=True)
 
     def name_get(self):

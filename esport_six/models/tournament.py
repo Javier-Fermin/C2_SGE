@@ -1,5 +1,3 @@
-import datetime
-
 from odoo import api,models,fields,exceptions
 from datetime import date
 
@@ -12,6 +10,7 @@ class Tournament(models.Model):
     best_of = fields.Integer(string='Best Of', default=1)
     date = fields.Date(string='Date')
     matches = fields.One2many(comodel_name='esports.match', inverse_name="tournament", string='Matches')
+    image = fields.Binary(string="Image", attachment=True)
 
     def name_get(self):
         result = []
