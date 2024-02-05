@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_esports_stats_form" model="ir.ui.view">
+        <field name="name">view.esports.stats.form</field>
+        <field name="model">esports.stats</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="image" widget="image" class="oe_avatar"/>
+                            </group>
+                            <group>
+                                <field name="match"/>
+                                <field name="player"/>
+                                <field name="team"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="kills"/>
+                            <field name="deaths"/>
+                            <field name="assists"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

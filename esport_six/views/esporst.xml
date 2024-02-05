@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="esports_menu_root"
+        name="Esports"
+        sequence="10"/>
+
+    <record id="esports_stats" model="ir.actions.act_window">
+        <field name="name">Stats</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esports.stats</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="menu_stats"
+              name="Stats"
+              parent="esports_menu_root"
+              action="esports_stats"
+              sequence="3"/>
+
+    <record id="esports_match" model="ir.actions.act_window">
+        <field name="name">Match</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esports.match</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="menu_match"
+              name="Match"
+              parent="esports_menu_root"
+              action="esports_match"
+              sequence="3"/>
+
+    <record id="esports_tournaments" model="ir.actions.act_window">
+        <field name="name">Tournaments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">esports.tournament</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+    <menuitem id="menu_tournaments"
+              name="Tournaments"
+              parent="esports_menu_root"
+              action="esports_tournaments"
+              sequence="3"/>
+</odoo>

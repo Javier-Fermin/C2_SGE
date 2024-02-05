@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_users_form_ext" model="ir.ui.view">
+        <field name="name">res.users.form.ext</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='oe_title']/group" position="inside">
+                <field name="is_player"/>
+                <field name="nickname" attrs="{'invisible': [('is_player', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
